@@ -162,9 +162,22 @@ const projects = [
 
 const categories = ["すべて", "ウェブデザイン", "ブランディング", "UIデザイン", "グラフィックデザイン"];
 
+interface Project {
+  id: number;
+  title: string;
+  category: string;
+  image: string;
+  images: string[];
+  description: string;
+  details: string;
+  technologies: string[];
+  duration: string;
+  client: string;
+}
+
 export default function WorksPage() {
   const [selectedCategory, setSelectedCategory] = useState("すべて");
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const filteredProjects = selectedCategory === "すべて" 
